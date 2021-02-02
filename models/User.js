@@ -3,8 +3,10 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
+// create User model
 class User extends Model {}
 
+// define User columns
 User.init(
   {
     id: {
@@ -59,3 +61,5 @@ User.init(
     modelName: "user",
   }
 );
+
+module.exports = User;
