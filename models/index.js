@@ -3,6 +3,8 @@ const User = require("./User");
 const Forum = require("./Forum");
 const Post = require("./Post");
 const Favorite = require("./Favorite");
+const Vote = require("./Vote");
+
 
 
 // User has many Forum
@@ -16,7 +18,7 @@ Forum.belongsTo(User, {
   onDelete: "SET NULL",
 });
 
-// allow Forum to query User through Favorite as favorited_forums
+// allow Forum to query User through Favorite as favorite_forums
 User.belongsToMany(Forum, {
   through: Favorite,
   as: 'favorite_forums',
@@ -24,7 +26,7 @@ User.belongsToMany(Forum, {
   onDelete: 'SET NULL'
 });
 
-// allow User to query Forum through Favorite as favorited_forums
+// allow User to query Forum through Favorite as favorite_forums
 Forum.belongsToMany(User, {
   through: Favorite,
   as: 'favorite_forums',
@@ -54,13 +56,13 @@ Forum.hasMany(Favorite, {
   foreignKey: 'forum_id'
 });
 
-// Post belongs to one User
+// Post is owned by one User
 Post.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
 
-// Post belongs to one Forum
+// Post is owned by one Forum
 Post.belongsTo(Forum, {
   foreignKey: 'forum_id',
   onDelete: 'SET NULL'
@@ -76,4 +78,44 @@ User.hasMany(Post, {
 Forum.hasMany(Post, {
   foreignKey: 'forum_id'
 });
-module.exports = { User, Forum, Post, Favorite};
+
+// allow Post to query User through Vote as voted_posts
+User.belongsToMany(Post, {
+  through: Vote,
+  as: 'voted_posts',
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+// allow User to query Post through Vote as voted_posts
+Post.belongsToMany(User, {
+  through: Vote,
+  as: 'voted_posts',
+  foreignKey: 'post_id',
+  onDelete: 'SET NULL'
+});
+
+// Vote is owned by one User
+Vote.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
+// Vote is owned by one Post
+Vote.belongsTo(Post, {
+  foreignKey: 'post_id',
+  onDelete: 'SET NULL'
+});
+
+// User has many Vote
+User.hasMany(Vote, {
+  foreignKey: 'user_id'
+});
+
+// Post has many Vote
+Post.hasMany(Vote, {
+  foreignKey: 'post_id'
+});
+
+
+module.exports = { User, Forum, Post, Favorite, Vote};
