@@ -102,18 +102,18 @@ router.post("/", (req, res) => {
     });
 });
 
-// router.put("/upFavorite", (req, res) => {
-//   // custom static method created in models/Forum.js
-//   Forum.upFavorite(
-//     { ...req.body, user_id: req.session.user_id },
-//     { Favorite, Post, User }
-//   )
-//     .then((updatedFavoriteData) => res.json(updatedFavoriteData))
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+router.put("/favorite", (req, res) => {
+  // custom static method created in models/Forum.js
+  Forum.favorite(
+    { ...req.body, user_id: req.body.user_id },
+    { Favorite, Post, User }
+  )
+    .then((updatedFavoriteData) => res.json(updatedFavoriteData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // put new forum data
 router.put("/:id", (req, res) => {
