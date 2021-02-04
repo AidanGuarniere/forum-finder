@@ -5,8 +5,6 @@ const Post = require("./Post");
 const Favorite = require("./Favorite");
 const Vote = require("./Vote");
 
-
-
 // User has many Forum
 User.hasMany(Forum, {
   foreignKey: "user_id",
