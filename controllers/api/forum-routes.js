@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
       "created_at",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM favorite, forums WHERE forum.id = favorite.forum_id)"
+          "(SELECT COUNT(*) FROM favorite, forum WHERE forum.id = favorite.forum_id)"
         ),
         "favorite_count",
       ],
