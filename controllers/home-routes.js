@@ -18,18 +18,22 @@ router.get('/', (req, res) => {
             'post_url',
             'title',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count'],
+            [sequelize.literal('(SELECT COUNT(*) FROM favorite, forum WHERE forum.id = favorite.forum_id)'),'favorite_count'],
         ],
         // Include the post model, can possibly reference how many posts are within forum
         include: [
             {
                 model: Post,
-                attributes: ['id', 'post_text', 'user_id', 'post_id', 'created_at'],
-                // A post should include the username
+                attributes: ['id', 'post_text', 'forum_id', 'user_id', 'created_at'],
                 include: {
                     model: User, 
                     attributes: ['username']
                 }
+            },
+            {
+                mode: User,
+                attributes: ['username']
             }
         ]
     })
@@ -60,12 +64,13 @@ router.get('/forums/:id', (req, res) => {
             'post_url',
             'title',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count'],
+            [sequelize.literal('(SELECT COUNT(*) FROM favorite, forum WHERE forum.id = favorite.forum_id)'),'favorite_count'],
         ],
-            include: [
+        include: [
             {
                 model: Post,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'post_text', 'forum_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -88,7 +93,7 @@ router.get('/forums/:id', (req, res) => {
         const forum = dbForumData.get({ plain: true });
 
         // Pass this data to the template
-        res.render('singel-forum', { forum });
+        res.render('single-forum', { forum });
 
     })
     .catch(err => {
