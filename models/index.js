@@ -115,5 +115,4 @@ Post.hasMany(Vote, {
   foreignKey: 'post_id'
 });
 
-
 module.exports = { User, Forum, Post, Favorite, Vote};
