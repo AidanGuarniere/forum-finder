@@ -5,7 +5,7 @@ const seedFavorites = require('./favorite-seeds');
 const seedPosts = require('./post-seeds');
 const seedVotes = require('./vote-seeds');
 
-const sequelize = require('../config/connection');
+const sequelize = require('../../config/connection.js');
 
 // seed Model data
 const seedAll = async () => {
