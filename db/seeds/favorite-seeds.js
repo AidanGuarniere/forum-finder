@@ -1,5 +1,5 @@
 // requirements 
-const { Favorite } = require('../models');
+const { Favorite } = require('../../models');
 
 const favoritedata = [
   {

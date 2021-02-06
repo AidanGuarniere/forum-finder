@@ -1,7 +1,7 @@
 // requiremnets 
-const { Post } = require('../models');
+const { Forum } = require('../../models');
 
-const postdata = [
+const forumdata = [
   {
     title: 'Donec posuere metus vitae ipsum.',
     initial_message: 'Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share least.',
@@ -105,6 +105,6 @@ const postdata = [
   }
 ];
 
-const seedPosts = () => Post.bulkCreate(postdata);
+const seedForums = () => Forum.bulkCreate(forumdata);
 
-module.exports = seedPosts;
+module.exports = seedForums;

@@ -1,5 +1,5 @@
 // requiremnts 
-const { Vote } = require('../models');
+const { Vote } = require('../../models');
 
 const votedata = [
   {
