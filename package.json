@@ -20,11 +20,17 @@
   "homepage": "https://github.com/AidanGuarniere/forum-finder#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "bulma": "^0.9.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.0"
   },
+<<<<<<< HEAD
   "devDependencies": {},
   "keywords": []
+=======
+  "devDependencies": {}
+>>>>>>> 09ba5687e3b4fa7759f7d67c62873460db709898
 }
