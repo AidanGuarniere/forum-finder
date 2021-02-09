@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects => {post_text: "This is the Post", user_id: 1, forum_id: 2}
+  // expects => {post_text: "", user_id: , forum_id: }
   Post.create({
     post_text: req.body.post_text,
     user_id: req.body.user_id,

@@ -22,7 +22,7 @@ class Post extends Model {
           "created_at",
           [
             sequelize.literal(
-              "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+              "(SELECT COUNT(*) FROM vote, post WHERE post.id = vote.post_id)"
             ),
             "vote_count",
           ],
@@ -44,9 +44,6 @@ Post.init(
     post_text: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [1],
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,

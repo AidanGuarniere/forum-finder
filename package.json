@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest",
-    "seeds": "node seeds/index.js"
+    "seeds": "node db/seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,10 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.0"
   },
+<<<<<<< HEAD
   "devDependencies": {}
+=======
+  "devDependencies": {},
+  "keywords": []
+>>>>>>> 6a8bd95c6f92f354360dadaee52f79d1e46a1941
 }
