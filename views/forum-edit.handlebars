@@ -1,0 +1,34 @@
+<article>
+  <a href="/views/dashboard.handlebars"> &larr; Back to dashboard</a>
+  <h2>
+    Edit forum
+  </h2>
+  <form class="edit-forum-form">
+    <div>
+      <input name="-title" type="text" value="{{forum.title}}" />
+      <span>({{format_url forum.forum_url}})</span>
+    </div>
+    <div>
+      {{forum.favorites}} {{format_plural "point" forum.favorites}} by you on {{format_date forum.created_at}}
+      |
+      <a href="/forum/{{forum.id}}">{{forum.length}} {{format_plural "forum" forum.length}}</a>
+    </div>
+    <button type="submit">Save forum</button>
+    <button type="button" class="delete-forum-btn">Delete forum</button>
+  </form>
+</article>
+
+<form class="forum-form">
+  <div>
+    <textarea name="forum-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add post</button>
+  </div>
+</form>
+
+{{> forum}}
+
+<script src="/public/javascript/forum-edit.js"></script>
+<script src="/public/javascript/forum-delete.js"></script>
