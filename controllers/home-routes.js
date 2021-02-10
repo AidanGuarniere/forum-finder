@@ -12,6 +12,8 @@ And if it's been favorited or not. So let's include those when we Forum.findAll
 
 // At the homepage find all the available forums
 router.get('/', (req, res) => {
+    console.log(req.session);
+
     Forum.findAll({
         attributes: [
             'id',
@@ -105,7 +107,11 @@ router.get('/forums/:id', (req, res) => {
 // Route that renders login
 // Login page doesn't need any variables, so we don't need to pass a second argument to the render() method.
 router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
     res.render('login');
-})
+});
 
 module.exports = router;

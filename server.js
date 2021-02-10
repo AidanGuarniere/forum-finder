@@ -1,6 +1,21 @@
 // requirements
 const path = require('path');
 const express = require('express');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+// Setting up sess (our cookies)
+// This code sets up an Express.js session and connects the session to our Sequelize database.
+const sess = {
+  secret: 'SuperSecretTestMaster',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,6 +39,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers'));
 
+// For cookies
+app.use(session(sess));
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening on PORT ' + PORT));
