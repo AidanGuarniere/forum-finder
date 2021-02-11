@@ -1,5 +1,5 @@
 <section>
-  <h2>Create New Post</h2>
+  <h2>Create New Forum</h2>
 
   <form class="new-post-form">
     <div>
@@ -14,13 +14,13 @@
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if post.length}}
 <section>
   <h2>Your Posts</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each post as |post|}}
     <li>
-      {{> post-info post}}
+      {{> forum-info post}}
       <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
