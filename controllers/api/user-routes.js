@@ -74,7 +74,19 @@ router.post("/", (req, res) => {
     email: req.body.email,
     password: req.body.password,
   })
-    .then((dbUserData) => res.json(dbUserData))
+    // WAS: .then((dbUserData) => res.json(dbUserData))
+    // This gives our server easy access to the user's user_id, username, and a Boolean describing whether or not the user is logged in.
+    // We want to make sure the session is created before we send the response back, so we're wrapping the variables in a callback
+    // The req.session.save() method will initiate the creation of the session and then run the callback function once complete.
+    .then(dbUserData => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+
+        res.json(dbUserData);
+      })
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -101,9 +113,28 @@ router.post("/login", (req, res) => {
         return;
       }
   
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      //Accessing session information & declaring session variables
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+
+        res.json({ user: dbUserData, message: "You are now logged in!" });
+      });
     });
   });
+
+// logout route
+router.post('/logout', (req, res) => {
+  // When a user logs out  we want to destroy the session variables and reset the cookie
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 // put new user data
 router.put("/:id", (req, res) => {
