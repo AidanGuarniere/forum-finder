@@ -1,0 +1,11 @@
+<article class="post">
+  <div class="title">
+    <a href="{{ forum_url }}" target="_blank">{{title}}</a>
+    <span>({{format_url forum_url}})</span>
+  </div>
+  <div class="meta">
+    {{favorites}} {{format_plural "point" forum}} by {{user.username}} on {{format_date created_at}}
+    |
+    <a href="/post/{{id}}">{{post.length}} {{format_plural "post" post.length}}</a>
+  </div>
+</article>
