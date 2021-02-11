@@ -124,6 +124,18 @@ router.post("/login", (req, res) => {
     });
   });
 
+// logout route
+router.post('/logout', (req, res) => {
+  // When a user logs out  we want to destroy the session variables and reset the cookie
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
 // put new user data
 router.put("/:id", (req, res) => {
   // expects {username: '', email: '@.', password: ''}
