@@ -1,5 +1,5 @@
 
-{{> forum-info post}}
+{{> forum-info }}
 
 {{#if loggedIn}}
 <form class="post-forum">
@@ -9,12 +9,10 @@
 
   <div>
     <button type="submit">add comment</button>
-    <button type="button" class="favortie-btn">upvote</button>
+    <button type="button" class="favortie-btn">Favorites</button>
   </div>
 </form>
 {{/if}}
-
-{{> comments post.comments}}
 
 {{#if loggedIn}}
 <script src="/public/javascript/forum-create.js"></script>
