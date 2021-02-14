@@ -2,7 +2,7 @@
 // const homeRoutes = require('./home-routes.js');
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Favorite, forum, User, Post, Vote } = require('../models');
+const { Favorite, Forum, User, Post, Vote } = require('../models');
 
 /* 
 When in the home-page, we'll want to find all available forums.
@@ -13,7 +13,9 @@ And if it's been favorited or not. So let's include those when we Forum.findAll
 router.get('/', (req, res) => {
   console.log('======================');
   console.log(req.session);
-  forum.findAll({
+
+
+  Forum.findAll({
     attributes: [
       'id',
       'forum_url',
@@ -54,7 +56,7 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbforumData => {
+    .then(dbForumData => {
        // Need the entire array of posts to be in the template.
       // That also means we'll need to serialize the entire array.
       // This will loop over and map each Sequelize object into a serialized version of itself, saving the results in a new forums array.
@@ -63,7 +65,7 @@ router.get('/', (req, res) => {
        // Pass this data to the template
       res.render('homepage', { 
         forums,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.body.loggedIn
       });
     })
     .catch(err => {
@@ -77,7 +79,7 @@ router.get('/', (req, res) => {
 // Route that renders login
 // Login page doesn't need any variables, so we don't need to pass a second argument to the render() method.
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.body.loggedIn) {
     res.redirect('/');
     return;
   }
@@ -86,7 +88,7 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/forum/:id', (req, res) => {
-  forum.findOne({
+  Forum.findOne({
     where: {
       id: req.params.id
     },
@@ -128,20 +130,20 @@ router.get('/forum/:id', (req, res) => {
       }
     ]
   })
-    .then(dbforumData => {
+    .then(dbForumData => {
       // If the Forum doesn't exist, send error to user
-      if (!dbforumData) {
+      if (!dbForumData) {
         res.status(404).json({ message: 'No forum found with this id' });
         return;
       }
 
       // Serialize the data
-      const forum = dbforumData.get({ plain: true });
+      const forum = dbForumData.get({ plain: true });
 
       // Pass data to template (We made changes in 14.3.6, be sure to reference later)
       res.render('single-forum', { 
         forum,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.body.loggedIn
        });
     })
     .catch(err => {

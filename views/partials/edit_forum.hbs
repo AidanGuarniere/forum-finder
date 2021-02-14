@@ -1,32 +1,34 @@
 <article>
   <a href="/views/dashboard.handlebars"> &larr; Back to dashboard</a>
   <h2>
-    Edit Forum
+    Edit forum
   </h2>
   <form class="edit-forum-form">
     <div>
-      <input name="forum-title" type="text" value="input" />
-      
+      <input name="title" type="text" value="{{ title }}" />
+      <span>({{ initial_message }})</span>
     </div>
-    <section>
-
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
-    
-    </section>
-
+    <div>
+      {{favorites}} by you on {{created_at}}
+      |
+      <a href="/forum/{{id}}"></a>
+    </div>
+    <button type="submit">Save forum</button>
+    <button type="button" class="delete-forum-btn">Delete forum</button>
   </form>
 </article>
 
-<form class="comment-form">
+<form class="forum-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="forum-body"></textarea>
   </div>
-
+  
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit">add post</button>
   </div>
 </form>
 
-<script src="/public/javascript/post-edit.js"></script>
-<script src="/public/javascript/post-delete.js"></script>
+{{> forum-info }}
+
+<script src="/public/javascript/forum-edit.js"></script>
+<script src="/public/javascript/forum-delete.js"></script>
