@@ -1,0 +1,20 @@
+
+{{> forum-info }}
+
+{{#if loggedIn}}
+<form class="post-forum">
+  <div>
+    <textarea name="post-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+    <button type="button" class="favortie-btn">Favorites</button>
+  </div>
+</form>
+{{/if}}
+
+{{#if loggedIn}}
+<script src="/public/javascript/forum-create.js"></script>
+<script src="/public/javascript/favorites.js"></script>
+{{/if}}
