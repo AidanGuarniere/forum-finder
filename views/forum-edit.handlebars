@@ -5,13 +5,13 @@
   </h2>
   <form class="edit-forum-form">
     <div>
-      <input name="-title" type="text" value="{{title}}" />
+      <input name="-title" type="text" value="{{ title }}" />
       <span>({{ initial_message }})</span>
     </div>
     <div>
       {{forum.favorites}} by you on {{created_at}}
       |
-      <a href="/forum/{{forum.id}}">{{forum.length}} {{format_plural "forum" forum.length}}</a>
+      <a href="/forum/{{forum.id}}">{{ forum.length }} {{format_plural "forum" forum.length}}</a>
     </div>
     <button type="submit">Save forum</button>
     <button type="button" class="delete-forum-btn">Delete forum</button>
