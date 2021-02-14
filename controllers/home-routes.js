@@ -14,12 +14,16 @@ router.get('/', (req, res) => {
   console.log('======================');
   console.log(req.session);
 
+  res.render("homepage",{message: 'hi, there!'});
+  res.send("this is a test");
+
+
 
   Forum.findAll({
     attributes: [
       'id',
-      'forum_url',
       'title',
+      'intial_message',
       'created_at',
       [
         sequelize.literal(
@@ -65,7 +69,7 @@ router.get('/', (req, res) => {
        // Pass this data to the template
       res.render('homepage', { 
         forums,
-        loggedIn: req.body.loggedIn
+        loggedIn: req.session.loggedIn
       });
     })
     .catch(err => {
@@ -79,7 +83,7 @@ router.get('/', (req, res) => {
 // Route that renders login
 // Login page doesn't need any variables, so we don't need to pass a second argument to the render() method.
 router.get('/login', (req, res) => {
-  if (req.body.loggedIn) {
+  if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
@@ -143,7 +147,7 @@ router.get('/forum/:id', (req, res) => {
       // Pass data to template (We made changes in 14.3.6, be sure to reference later)
       res.render('single-forum', { 
         forum,
-        loggedIn: req.body.loggedIn
+        loggedIn: req.session.loggedIn
        });
     })
     .catch(err => {

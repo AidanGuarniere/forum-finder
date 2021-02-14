@@ -31,4 +31,4 @@ async function editForumHandler(event) {
     }
   }
   
-document.querySelector('.edit-post-form').addEventListener('submit', editForumHandler);
+document.querySelector('.forum-form').addEventListener('submit', editForumHandler);

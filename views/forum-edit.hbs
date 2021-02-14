@@ -1,20 +1,20 @@
 <article>
   <a href="/views/dashboard.handlebars"> &larr; Back to dashboard</a>
   <h2>
-    Edit forum
+    Edit Forum
   </h2>
-  <form class="edit-forum-form">
+  <form class="forum-edit-form">
     <div>
       <input name="title" type="text" value="{{ title }}" />
-      <span>({{ initial_message }})</span>
+      <span>{{ initial_message }}</span>
     </div>
     <div>
-      {{favorites}} by you on {{created_at}}
-      |
-      <a href="/forum/{{id}}"></a>
+      {{ favorite }} by you on {{ created_at }}
+      
+      {{!-- <a href="/forum/{{ post.id }}"></a> --}}
     </div>
-    <button type="submit">Save forum</button>
-    <button type="button" class="delete-forum-btn">Delete forum</button>
+    <button type="submit">Save Forum</button>
+    <button type="button" class="delete-forum-btn">Delete Forum</button>
   </form>
 </article>
 
@@ -24,7 +24,7 @@
   </div>
   
   <div>
-    <button type="submit">add post</button>
+    <button type="submit">Add Post</button>
   </div>
 </form>
 
