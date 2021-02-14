@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
   console.log('======================');
   console.log(req.session);
 
-  res.render("homepage",{message: 'hi, there!'});
-  res.send("this is a test");
+  // res.render("homepage",{message: 'hi, there!'});
+  // res.send("this is a test");
 
 
 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
-      'intial_message',
+      // 'intial_message',
       'created_at',
       [
         sequelize.literal(
