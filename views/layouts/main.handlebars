@@ -11,20 +11,30 @@
   {{!-- <link rel="stylesheet" href="/public/css/styles.css"> --}}
 </head>
 <body>
-        <div class="main-container">
-           
-        {{> header }}
-        {{> about }}
-        {{{ homepage }}}
-        {{> footer }}
-        
-        </div>
-           
-<p>
-  you are on the main.handlebars/landing page.
-</p>
+<div class="wrapper">
+<header>
+<h1> <a href="/">Forum Finder</a></h1>
+<nav>
 
-    </body>
+<button>
+<a href="/views/dashboard.handlebars">DASHBOARD</a>
+</button> 
+<button>
+<a href="/views/login.handlebars">LOGIN</a>
+</button> 
+<button id="logout">LOG OUT</button>
+</nav>
+
+</header>
+<main>
+  {{{body}}}
+</main>
+
+<footer>This is a Foot</footer>
+</div>
+
+<script src="/public/javascript/logout.js"></script>
+</body>
 </html>
 
 
