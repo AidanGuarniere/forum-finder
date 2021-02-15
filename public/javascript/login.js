@@ -20,7 +20,7 @@ async function loginFormHandler(event) {
 
         // When the accounts been created, taken them to the users dashboard
         if (response.ok) {
-            document.location.replace('/dashboard/');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
@@ -55,3 +55,6 @@ async function signupFormHandler(event){
     }
   }
 }
+
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
