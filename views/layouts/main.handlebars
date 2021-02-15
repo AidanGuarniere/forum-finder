@@ -1,3 +1,5 @@
+{{!-- LANDING/LOADING PAGE --}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,19 +7,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forum Finder</title>
-  <link rel="stylesheet" href="/public/stylesheets/style.css">
-{{ navbar }}
-</head>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  {{!-- <link rel="stylesheet" href="/public/css/styles.css"> --}}
+  <section class="hero is-info">
+  {{!-- <div class="hero-body">
+    <p class="title">
+      Info hero
+    </p>
+    <p class="subtitle">
+      Info subtitle
+    </p>
+  </div> --}}
+
+
+<body>
+<div class="wrapper">
+<header>
+<h1> <a class="title" href="/">Forum Finder</a></h1>
+<nav>
+
+<button>
+<a class="is-warning" href="/dashboard">DASHBOARD</a>
+</button> 
+<button>
+<a class="is-warning" href="/views/login.handlebars">LOGIN</a>
+</button> 
+<button class="is-warning" id="logout">LOG OUT</button>
+</nav>
+</header>
+</section>
+
+</header>
+<main>
+  {{{body}}}
+</main>
+
+<footer>This is a Foot</footer>
+</div>
+
+<script src="/javascript/logout.js"></script>
+</body>
+</html>
+
+
+
+
+
+{{!-- </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Forum Finder</a>
-      </h1>
+        {{{header}}}
+
+      <p>
+        this is the landing page. >:{
+      </p>
     </header>
     <main>
-      {{{ homepage }}}
+{{{ homepage }}}
+      
     </main>
   
   </div>
@@ -26,4 +75,4 @@
   {{/if}}
 </body>
 
-</html>
+</html> --}}

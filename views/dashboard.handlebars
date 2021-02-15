@@ -1,11 +1,32 @@
-<div>
-    you are on your dashboard!
-    
-</div>
-<div>
-    <p>
-        
-      {{!-- {{> post-forum-form}}   to be clarified --}}
-        {{{ forum-edit-form }}}
-    </p>
-</div>
+{{!-- this is dashboard --}}
+
+
+<section>
+  <h2>Create New Forum</h2>
+  <form class="new-forum-form">
+    <div>
+      <label for="forum-title">Title</label>
+      <input type="text" id="forum-title" name="forum-title" />
+    </div>
+    <div>
+      <label for="forum-url">Link</label>
+      <input id="forum-url" name="forum-url" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
+{{!-- {{#if forums.length}} --}}
+<section>
+  <h2>Your Forums</h2>
+  <ol>
+    {{#each forums as |forums|}}
+    <li>
+      {{> forum-info }}
+      <a href="/dashboard/edit/{{forum.id}}" class="edit-link">Edit Forum</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{!-- {{/if}} --}}
+<script src="/javascript/forum-create.js"></script>
+

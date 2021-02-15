@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
   console.log('======================');
   console.log(req.session);
 
-  res.render("homepage",{message: 'hi, there!'});
-  res.send("this is a test");
+  // res.render("homepage",{message: 'hi, there!'});
+  // res.send("this is a test");
 
 
 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
-      'intial_message',
+      // 'intial_message',
       'created_at',
       [
         sequelize.literal(
@@ -82,9 +82,9 @@ router.get('/', (req, res) => {
 // If the user's at a specific forum, then present all the posts within this forum
 // Route that renders login
 // Login page doesn't need any variables, so we don't need to pass a second argument to the render() method.
-router.get('/login', (req, res) => {
+router.get('/views/login.handlebars', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/views/dashboard.handlebars');
     return;
   }
 
