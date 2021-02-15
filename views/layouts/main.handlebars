@@ -9,17 +9,34 @@
   <title>Forum Finder</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   {{!-- <link rel="stylesheet" href="/public/css/styles.css"> --}}
-{{>navbar}}
 </head>
+<body>
+        <div class="main-container">
+           
+        {{> header }}
+        {{> about }}
+        {{{ homepage }}}
+        {{> footer }}
+        
+        </div>
+           
+<p>
+  you are on the main.handlebars/landing page.
+</p>
+
+    </body>
+</html>
+
+
+
+
+
+{{!-- </head>
 
 <body>
   <div class="wrapper">
     <header>
-
-      {{!-- {{{ header }}} --}}
-      {{!-- <h1>
-        <a href="/">Forum Finder</a>
-      </h1> --}}
+        {{{header}}}
 
       <p>
         this is the landing page. >:{
@@ -27,7 +44,7 @@
     </header>
     <main>
 {{{ homepage }}}
-      {{!-- {{{ homepage }}} --}}
+      
     </main>
   
   </div>
@@ -36,4 +53,4 @@
   {{/if}}
 </body>
 
-</html>
+</html> --}}

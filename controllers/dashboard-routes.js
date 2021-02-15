@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Favorite, Forum, Post, User, Vote } = require("../models");
+const { Favorite, Forum, Post, User, Vote } = require("../models/");
 
 // The dashboard should only display posts created by the logged in user
 router.get("/", (req, res) => {
@@ -51,7 +51,7 @@ router.get("/", (req, res) => {
     .then((dbForumData) => {
       // serialize data before passing to template
       const forums = dbForumData.map((forum) => forum.get({ plain: true }));
-      res.render("dashboard", { forums });
+      res.render("views/dashboard.handlebars", { forums });
     })
     .catch((err) => {
       console.log(err);
