@@ -12,3 +12,9 @@ router.use((req, res) => {
 });
 
 module.exports = router;
+
+
+function createHTML(forumData){
+  console.log('testing from our function');
+  console.log(forumData);
+}
