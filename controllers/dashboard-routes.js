@@ -60,7 +60,7 @@ router.get("/", (req, res) => {
 });
 
 // Update the API endpoints to use the id from the session
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/id", (req, res) => {
   Forum.findByPk(req.params.id, {
     attributes: [
       "id",
