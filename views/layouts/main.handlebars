@@ -10,32 +10,27 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   {{!-- <link rel="stylesheet" href="/public/css/styles.css"> --}}
   <section class="hero is-info">
-  {{!-- <div class="hero-body">
-    <p class="title">
-      Info hero
-    </p>
-    <p class="subtitle">
-      Info subtitle
-    </p>
-  </div> --}}
-
-
+   <div class="hero-body">
 <body>
 <div class="wrapper">
 <header>
-<h1> <a class="title" href="/">Forum Finder</a></h1>
+<h1><a class="title" href="/"><strong>Forum Finder</strong></a> <h1>
 <nav>
-
-<button>
-<a class="is-warning" href="/dashboard">DASHBOARD</a>
+<div class="navbar-start">
+<button class="button is-warning">
+<a href="/dashboard">DASHBOARD</a>
 </button> 
-<button>
-<a class="is-warning" href="/views/login.handlebars">LOGIN</a>
+<button class="button is-warning">
+<a href="/views/login.handlebars">LOGIN</a>
 </button> 
-<button class="is-warning" id="logout">LOG OUT</button>
+</div>
+<div class="navbar-end">
+<button class="button is-warning" id="logout">LOG OUT</button>
+</div>
 </nav>
 </header>
 </section>
+</head>
 
 </header>
 <main>
@@ -49,30 +44,3 @@
 </body>
 </html>
 
-
-
-
-
-{{!-- </head>
-
-<body>
-  <div class="wrapper">
-    <header>
-        {{{header}}}
-
-      <p>
-        this is the landing page. >:{
-      </p>
-    </header>
-    <main>
-{{{ homepage }}}
-      
-    </main>
-  
-  </div>
- {{#if loggedIn}}
-  <script src="/public/javascript/logout.js"></script>
-  {{/if}}
-</body>
-
-</html> --}}
