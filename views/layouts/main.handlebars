@@ -9,23 +9,28 @@
   <title>Forum Finder</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   {{!-- <link rel="stylesheet" href="/public/css/styles.css"> --}}
-</head>
+  <section class="hero is-info">
+   <div class="hero-body">
 <body>
 <div class="wrapper">
 <header>
-<h1> FORUM FINDER</h1>
+<h1><a class="title" href="/"><strong>Forum Finder</strong></a> <h1>
 <nav>
-<button>
-  <a href="/">HOME</a>
-</button>
-<button>
+<div class="navbar-start">
+<button class="button is-warning">
 <a href="/dashboard">DASHBOARD</a>
 </button> 
-<button>
+<button class="button is-warning">
 <a href="login">LOGIN</a>
 </button> 
-<button id="logout">LOG OUT</button>
+</div>
+<div class="navbar-end">
+<button class="button is-warning" id="logout">LOG OUT</button>
+</div>
 </nav>
+</header>
+</section>
+</head>
 
 </header>
 <main>
@@ -39,30 +44,3 @@
 </body>
 </html>
 
-
-
-
-
-{{!-- </head>
-
-<body>
-  <div class="wrapper">
-    <header>
-        {{{header}}}
-
-      <p>
-        this is the landing page. >:{
-      </p>
-    </header>
-    <main>
-{{{ homepage }}}
-      
-    </main>
-  
-  </div>
- {{#if loggedIn}}
-  <script src="/public/javascript/logout.js"></script>
-  {{/if}}
-</body>
-
-</html> --}}

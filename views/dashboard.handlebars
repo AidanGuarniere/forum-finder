@@ -19,9 +19,9 @@
 <section>
   <h2>Your Forums</h2>
   <ol>
-    {{#each forums as |forum|}}
+    {{#each forums as |forums|}}
     <li>
-      {{> forum-info forum}}
+      {{> forum-info }}
       <a href="/dashboard/edit/{{forum.id}}" class="edit-link">Edit Forum</a>
     </li>
     {{/each}}
@@ -32,50 +32,3 @@
 <script src="/javascript/forum-edit.js"></script>
 <script src="/javascript/forum-delete.js"></script>
 
-
-
-
-
-{{!-- <section>
-  <h2>Create New Forum</h2>
-
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
-
-{{#if post.length}}
-<section>
-  <h2>Your Favorited forums</h2>
-  <ol>
-    {{#each post as |post|}}
-    <li>
-      {{> forum-info }}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}} --}}
-
-{{!-- <script src="/javascript/forum-create.js"></script> --}}
-
-
-
-
-{{!-- 
-{{!-- <div>
-    <p>
-        
-      {{!-- {{> post-forum-form}}   to be clarified --}}
-        {{{ forum-edit-form }}}
-  </p>
-</div>--}} 
