@@ -9,7 +9,10 @@
   # Table of Contents 
   - [Description](#description)
   - [Project-Standards](#project-standards)
-  - [Installation](#installation)
+  - [Technologies Used](#technologies-used)
+  - [Successes](#successes)
+  - [Challenges](#challenges)
+  - [Installation and Usage](#installation)
   - [Usage](#usage)
   - [Contributors](#contributors)
 
@@ -20,11 +23,11 @@
 
 # **Description:**
 
-    Forum Finder is a social networking website designed to connect it's users through user-generated forums. Within these forums, other users can post their thoughts, and upvote or downvote other user's posts. Users may also favorite a forum, and view their favorites separately forum the global forum stream.
+Forum Finder is a social networking website designed to connect it's users through user-generated forums. Within these forums, other users can post their thoughts, and upvote or downvote other user's posts. Users may also favorite a forum, and view their favorites separately forum the global forum stream.
 
-    Forum Finder was designed for anyone on the internet with a thought to share or a question to ask. Users of Reddit, Quora, or any other forum-based website may find use from Forum Finder
+Forum Finder was designed for anyone on the internet with a thought to share or a question to ask. Users of Reddit, Quora, or any other forum-based website may find use from Forum Finder
 
-    In making Forum Finder, we hope to create a platform where people of all backgrounds and professions can ask questions, share stories, make friends, and connect with one another.
+In making Forum Finder, we hope to create a platform where people of all backgrounds and professions can ask questions, share stories, make friends, and connect with one another.
     
 ## **Project Standards**
 ### Secure
@@ -65,7 +68,7 @@
 - Like any other team, we came across some coding challenges. Having varying degrees of abilities in certain aspects. Handlebars was our most difficult area to get established, which really constrained our front-end development.
 ### Ideas/Visions
 - Working together, was not so much a challenge. We all believe that this was a great group, with great attitudes. The biggest challenge in collaborating, was getting our visions across and understood throughout the teammates.
-### SCHEDULING
+### Scheduling
 - A daily planner was instilled early on in the project. With date and coding goals.  That being said, this plan, allowed cushion for making the best of any scenario, and sticking to it.  
 
 ## **Installation:**
@@ -76,9 +79,9 @@ Install straight from Github onto a local directory!
   - This connects and tests on Forum-Finder's server on Heroku
   - From there you can create a new forum, create a new post, create a new user, log in and generate session cookies
 
-### OR
+ **OR**
 
-## To run it on the back-end type 'node server'
+ To run it on the back-end type 'node server'
   - 'node server' activates this on local port 3001
   - Navigate to "http://localhost:3001/api/(route-name)" to test it out there.
   
